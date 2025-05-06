@@ -19,6 +19,7 @@ The use-case:
 - **Table Storage:** Saves tags per user/image for querying
 
 ![Architecture](https://github.com/user-attachments/assets/675d50e8-41a5-450b-822f-e620705306cb)
+[Azure Image Tagging System Presentation](https://github.com/user-attachments/files/20062260/azure_image_tagging_system.pptx)
 
 ---
 
