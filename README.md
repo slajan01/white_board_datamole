@@ -21,7 +21,7 @@ This project implements a scalable cloud-based system using Microsoft Azure serv
 3. A message is placed into **Azure Queue Storage**.
 4. A Python **worker service** retrieves the message, downloads the image, and classifies it using a CNN.
 5. Classification results are stored in **Azure Table Storage**.
->>>>>>> 49c2a49 (Final touch)
+
 
 ---
 
@@ -37,9 +37,9 @@ This project implements a scalable cloud-based system using Microsoft Azure serv
 
 ---
 
-<<<<<<< HEAD
-## 📁 Project Structure
 
+## 📁 Project Structure
+```
 azure-image-tagging-system/
 ├── frontend/ # (Optional) Frontend mock
 │ └── upload.py # Upload to Blob & Queue
@@ -51,7 +51,7 @@ azure-image-tagging-system/
 │ └── azure_image_tagging_architecture.png
 ├── azure_image_tagging_system.pptx
 └── README.md
-
+```
 ---
 
 ## 🚀 Getting Started
@@ -139,13 +139,13 @@ azure-human-detection/
 - Inline model creation for structure prototyping
 - Easy switch to trained model via env var
 - Modular design using Azure SDK
->>>>>>> 49c2a49 (Final touch)
+
 
 ---
 
 ## 📄 License
 
-<<<<<<< HEAD
+
 MIT License
 =======
 MIT License
