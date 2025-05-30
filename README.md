@@ -1,17 +1,12 @@
-# Azure Image Tagging System
+# Azure Human Detection System
 
-This project demonstrates a simple cloud-native system using **Azure Storage** services:
-- Azure Blob Storage
-- Azure Queue Storage
-- Azure Table Storage
-
-The use-case:  
-**"Users upload images via a frontend. Images are stored in Blob Storage. A background service asynchronously analyzes and tags the images. Tags are stored in Table Storage for fast retrieval."**
+This project implements a scalable cloud-based system using Microsoft Azure services to detect whether an uploaded image contains a human using a neural network.
 
 ---
 
-## 🧱 Architecture Overview
+## 📦 System Overview
 
+<<<<<<< HEAD
 - **Frontend:** Uploads images via HTTP
 - **Blob Storage:** Stores uploaded image files
 - **Queue Storage:** Stores a reference message (e.g., blob URL + user ID)
@@ -20,19 +15,29 @@ The use-case:
 
 ![Architecture](https://github.com/user-attachments/assets/675d50e8-41a5-450b-822f-e620705306cb)
 [Azure Image Tagging System Presentation](https://github.com/user-attachments/files/20062260/azure_image_tagging_system.pptx)
+=======
+1. Users upload images via a frontend or CLI.
+2. Images are stored in **Azure Blob Storage**.
+3. A message is placed into **Azure Queue Storage**.
+4. A Python **worker service** retrieves the message, downloads the image, and classifies it using a CNN.
+5. Classification results are stored in **Azure Table Storage**.
+>>>>>>> 49c2a49 (Final touch)
 
 ---
 
-## 🧾 Azure Technology Summary
+## ⚙️ Technology Stack
 
-| Service             | Purpose                         | Strengths                             | Limitations                          |
-|---------------------|----------------------------------|----------------------------------------|---------------------------------------|
-| **Blob Storage**     | Unstructured data (e.g., images) | Highly durable, scalable, cheap tiers | No metadata querying                  |
-| **Queue Storage**    | Async communication              | Simple decoupling, reliable delivery   | At-least-once, 64KB message limit     |
-| **Table Storage**    | Structured NoSQL metadata        | Fast lookups, cheap NoSQL              | Limited query model, no joins         |
+| Component        | Technology                 |
+|------------------|-----------------------------|
+| Image Storage    | Azure Blob Storage          |
+| Messaging Queue  | Azure Queue Storage         |
+| Classification   | TensorFlow Keras CNN (inline or trained `.h5`) |
+| Metadata Store   | Azure Table Storage         |
+| Language         | Python                      |
 
 ---
 
+<<<<<<< HEAD
 ## 📁 Project Structure
 
 azure-image-tagging-system/
@@ -63,9 +68,85 @@ azure-image-tagging-system/
 - Tags are mock-generated; integrate your ML model easily.
 - Extend with Azure Functions, Logic Apps, or Event Grid for automation.
 - Make sure to secure access with SAS or RBAC in production.
+=======
+## 🧠 Neural Network Modes
+
+- **Default (Inline)**: Untrained CNN created at runtime.
+- **Trained Model**: Use your `.h5` model by setting:
+
+```bash
+export USE_TRAINED_MODEL=true
+```
+
+And ensure `trained_human_detection_model.h5` exists in the project root.
+
+---
+
+## 🧪 Training Your Model
+
+1. Organize your dataset:
+```
+./data/train/
+    ├── human/
+    └── not_human/
+```
+
+2. Run the training script:
+```bash
+python train_model.py
+```
+
+3. It will generate `trained_human_detection_model.h5`.
+
+---
+
+## 🚀 How to Run
+
+1. Set your Azure Storage connection string:
+```bash
+export AZURE_STORAGE_CONNECTION_STRING="<your_connection_string>"
+```
+
+2. Upload an image:
+```bash
+python upload_image.py
+```
+
+3. Process messages and classify images:
+```bash
+python worker.py
+```
+
+---
+
+## 📂 Project Structure
+
+```
+azure-human-detection/
+├── config.py
+├── utils.py
+├── upload_image.py
+├── worker.py
+├── train_model.py
+└── trained_human_detection_model.h5  # optional
+```
+
+---
+
+## ✅ Features
+
+- Fully functional offline image classification pipeline
+- Inline model creation for structure prototyping
+- Easy switch to trained model via env var
+- Modular design using Azure SDK
+>>>>>>> 49c2a49 (Final touch)
 
 ---
 
 ## 📄 License
 
+<<<<<<< HEAD
 MIT License
+=======
+MIT License
+>>>>>>> 49c2a49 (Final touch)
