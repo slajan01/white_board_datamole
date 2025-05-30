@@ -148,5 +148,4 @@ azure-human-detection/
 
 MIT License
 =======
-MIT License
->>>>>>> 49c2a49 (Final touch)
+
