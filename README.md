@@ -6,7 +6,7 @@ This project implements a scalable cloud-based system using Microsoft Azure serv
 
 ## 📦 System Overview
 
-<<<<<<< HEAD
+
 - **Frontend:** Uploads images via HTTP
 - **Blob Storage:** Stores uploaded image files
 - **Queue Storage:** Stores a reference message (e.g., blob URL + user ID)
@@ -22,7 +22,6 @@ This project implements a scalable cloud-based system using Microsoft Azure serv
 4. A Python **worker service** retrieves the message, downloads the image, and classifies it using a CNN.
 5. Classification results are stored in **Azure Table Storage**.
 
-
 ---
 
 ## ⚙️ Technology Stack
@@ -36,7 +35,6 @@ This project implements a scalable cloud-based system using Microsoft Azure serv
 | Language         | Python                      |
 
 ---
-
 
 ## 📁 Project Structure
 ```
